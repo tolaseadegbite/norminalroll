@@ -10,9 +10,32 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_11_223940) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_11_234254) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "staffs", force: :cascade do |t|
+    t.string "title"
+    t.string "surname"
+    t.string "other_names"
+    t.integer "sex", default: 0
+    t.string "state"
+    t.string "lga"
+    t.string "designation"
+    t.text "qwd"
+    t.text "prof_qualifications"
+    t.integer "conpcass"
+    t.datetime "dob"
+    t.datetime "dofa"
+    t.datetime "dopa"
+    t.integer "status_of_app", default: 0
+    t.string "file_no"
+    t.text "remarks"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_staffs_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -26,4 +49,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_11_223940) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "staffs", "users"
 end

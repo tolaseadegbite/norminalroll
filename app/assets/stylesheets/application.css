@@ -13,3 +13,35 @@
  *= require_tree .
  *= require_self
  */
+
+ @import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+
+ h1,h2,h3,h4,h5,h6 {
+    font-family: 'Roboto', sans-serif;
+    /* font-weight: bold; */
+ }
+
+ p,td {
+    font-family: 'Open Sans', sans-serif;
+ }
+
+ th {
+    font-family: 'Roboto', sans-serif;
+ }
+
+ section {
+    font-size: 12px;
+    padding: 5vh 0;
+ }
+
+ textarea.form-control {
+    min-height: 15vw;
+}
+
+.btn {
+    border-radius: 0;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.3rem 0.3rem;
+}

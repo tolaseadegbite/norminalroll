@@ -1,0 +1,117 @@
+<%= form_with(model: @staff) do |form| %>
+    <%= render 'layouts/errors', form: form %>
+
+    <div class="form-group">
+        <h6><%= form.label :title %></h6>
+        <%= form.text_field :title, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :surname %></h6>
+        <%= form.text_field :surname, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+
+    <div class="form-group">
+        <h6><%= form.label :other_names %></h6>
+        <%= form.text_field :other_names, autocomplete: 'off', class: "form-control" %>
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :sex %></h6>
+        <%= form.number_field :sex, autocomplete: 'off', class: "form-control" %>
+    </div>
+
+    <br>
+        
+    <div class="form-group">
+        <h6><%= form.label :state %></h6>
+        <%= form.text_field :state, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :lga, "Local Government Area" %></h6>
+        <%= form.text_field :lga, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :designation %></h6>
+        <%= form.text_field :designation, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :qwd, "Qualifications with dates" %></h6>
+        <%= form.text_area :qwd, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :prof_qualifications, "Professional qualifications" %></h6>
+        <%= form.text_area :prof_qualifications, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :conpcass %></h6>
+        <%= form.number_field :conpcass, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :dob, "Date of birth" %></h6>
+        <%= form.date_field :dob, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :dofa, "Date of first appointment" %></h6>
+        <%= form.date_field :dofa, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :dopa, "Date of present appointment" %></h6>
+        <%= form.date_field :dopa, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :status_of_app, "Status of appointment" %></h6>
+        <%= form.number_field :status_of_app, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :file_no, "File number" %></h6>
+        <%= form.text_field :file_no, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h6><%= form.label :remarks %></h6>
+        <%= form.text_area :remarks, autocomplete: 'off', class: "form-control" %>
+    </div>
+
+    <br>
+    
+    <%= form.submit :submit, class: "btn btn-primary" %>
+<% end %>

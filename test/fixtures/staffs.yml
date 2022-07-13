@@ -1,0 +1,63 @@
+# == Schema Information
+#
+# Table name: staffs
+#
+#  id                  :bigint           not null, primary key
+#  title               :string
+#  surname             :string
+#  other_names         :string
+#  sex                 :integer          default(0)
+#  state               :string
+#  lga                 :string
+#  designation         :string
+#  qwd                 :text
+#  prof_qualifications :text
+#  conpcass            :integer
+#  dob                 :datetime
+#  dofa                :datetime
+#  dopa                :datetime
+#  status_of_app       :integer          default(0)
+#  file_no             :string
+#  remarks             :text
+#  user_id             :bigint           not null
+#  created_at          :datetime         not null
+#  updated_at          :datetime         not null
+#
+
+one:
+  title: MyString
+  surname: MyString
+  other_names: MyString
+  sex: 1
+  state: MyString
+  lga: MyString
+  designation: MyString
+  qwd: MyText
+  prof_qualifications: MyText
+  conpcass: 1
+  dob: 2022-07-12 00:42:54
+  dofa: 2022-07-12 00:42:54
+  dopa: 2022-07-12 00:42:54
+  status_of_app: 1
+  file_no: MyString
+  remarks: MyText
+  user: one
+
+two:
+  title: MyString
+  surname: MyString
+  other_names: MyString
+  sex: 1
+  state: MyString
+  lga: MyString
+  designation: MyString
+  qwd: MyText
+  prof_qualifications: MyText
+  conpcass: 1
+  dob: 2022-07-12 00:42:54
+  dofa: 2022-07-12 00:42:54
+  dopa: 2022-07-12 00:42:54
+  status_of_app: 1
+  file_no: MyString
+  remarks: MyText
+  user: two

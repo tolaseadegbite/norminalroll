@@ -1,0 +1,79 @@
+<div class="container my-5">
+    <h1 class="text-center"><%= @staff.title %> <%= @staff.surname %>'s record</h1>
+    <br>
+    
+    <table class="table table-bordered">
+        <thead class="table-secondary">
+            <tr>
+            <th scope="col">Attributes</th>
+            <th scope="col">Values</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+            <tr>
+                <td><b>Title</b></td>
+                <td><%= @staff.title %></td>
+            </tr>
+            <tr>
+                <td><b>Surname</b></td>
+                <td><%= @staff.surname %></td>
+            </tr>
+            <tr>
+                <td><b>Other names</b></td>
+                <td><%= @staff.other_names %></td>
+            </tr>
+            <tr>
+                <td><b>Sex</b></td>
+                <td><%= @staff.sex %></td>
+            </tr>
+            <tr>
+                <td><b>State</b></td>
+                <td><%= @staff.state %></td>
+            </tr>
+            <tr>
+                <td><b>LGA</b></td>
+                <td><%= @staff.lga %></td>
+            </tr>
+            <tr>
+                <td><b>Designation</b></td>
+                <td><%= @staff.designation %></td>
+            </tr>
+            <tr>
+                <td><b>Qualifications with dates</b></td>
+                <td><%= simple_format(@staff.qwd) %></td>
+            </tr>
+            <tr>
+                <td><b>Professional Qualifications</b></td>
+                <td><%= simple_format(@staff.prof_qualifications) %></td>
+            </tr>
+            <tr>
+                <td><b>Conpcass</b></td>
+                <td><%= @staff.conpcass %></td>
+            </tr>
+            <tr>
+                <td><b>Date of birth</b></td>
+                <td><%= @staff.dob %></td>
+            </tr>
+            <tr>
+                <td><b>Date of first appointment</b></td>
+                <td><%= @staff.dofa %></td>
+            </tr>
+            <tr>
+                <td><b>Date of present appointment</b></td>
+                <td><%= @staff.dopa %></td>
+            </tr>
+            <tr>
+                <td><b>Status of application</b></td>
+                <td><%= @staff.status_of_app %></td>
+            </tr>
+            <tr>
+                <td><b>File number</b></td>
+                <td><%= @staff.file_no %></td>
+            </tr>
+            <tr>
+                <td><b>Remarks</b></td>
+                <td><%= @staff.remarks %></td>
+            </tr>
+    </table>
+</div>
