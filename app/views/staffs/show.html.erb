@@ -1,4 +1,10 @@
 <div class="container my-5">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+            <li class="breadcrumb-item"><%= link_to "Staffs record", staffs_path, class: "breadcrumb-item" %></li>
+            <li class="breadcrumb-item active" aria-current="page"><%= @staff.surname %> (ID: <%= @staff.id %>)</li>
+        </ol>
+    </nav>
     <h1 class="text-center"><%= @staff.title %> <%= @staff.surname %>'s record</h1>
     <br>
     
