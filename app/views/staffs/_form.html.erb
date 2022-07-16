@@ -23,8 +23,8 @@
     <br>
     
     <div class="form-group">
-        <h6><%= form.label :sex %></h6>
-        <%= form.number_field :sex, autocomplete: 'off', class: "form-control" %>
+        <h6><%= form.label :Gender %></h6>
+        <%= select_tag :sex, options_for_select(Staff.sexes.map { |k,v| k }, { required: true, include_blank: false}), class: "form-select" %>
     </div>
 
     <br>
@@ -94,7 +94,7 @@
     
     <div class="form-group">
         <h6><%= form.label :status_of_app, "Status of appointment" %></h6>
-        <%= form.number_field :status_of_app, autocomplete: 'off', class: "form-control" %>
+        <%= select_tag :status_of_app, options_for_select(Staff.status_of_apps.map { |k,v| k }, { required: true, include_blank: false}), class: "form-select" %>
     </div>
     
     <br>

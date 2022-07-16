@@ -25,4 +25,7 @@
 #
 class Staff < ApplicationRecord
   belongs_to :user
+
+  enum sex: { Female: 0, Male: 1 }
+  enum status_of_app: { Pending: 0, Active: 1, Retired: 2 }
 end

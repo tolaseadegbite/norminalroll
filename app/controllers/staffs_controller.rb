@@ -3,7 +3,7 @@ class StaffsController < ApplicationController
     before_action :find_staff, only: %i[show edit update destroy]
 
     def index
-        @staff = Staff.order(created_at: :asc)
+        @staff = Staff.all.order(created_at: :asc)
     end
 
     def new

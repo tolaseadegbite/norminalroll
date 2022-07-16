@@ -1,11 +1,18 @@
 <div class="container my-5">
     <nav aria-label="breadcrumb">
         <ol class="breadcrumb">
-            <li class="breadcrumb-item"><%= link_to "Staffs record", staffs_path, class: "breadcrumb-item" %></li>
+            <li class="breadcrumb-item"><%= link_to "Staffs records", staffs_path, class: "breadcrumb-item" %></li>
             <li class="breadcrumb-item active" aria-current="page"><%= @staff.surname %> (ID: <%= @staff.id %>)</li>
         </ol>
     </nav>
-    <h1 class="text-center"><%= @staff.title %> <%= @staff.surname %>'s record</h1>
+
+    <p><small><b>Record created on:</b> <i><%= @staff.created_at %></i> | <b>Last updated on:</b> <i><%= @staff.updated_at %></i></small></p>
+
+    <p>
+        <%= link_to "Edit", edit_staff_path(@staff) %> |
+        <%= link_to "Delete", staff_path(@staff), class: "text-danger" %>
+        <h1 class="text-center"><%= @staff.title %> <%= @staff.surname %>'s record</h1>
+    </p>
     <br>
     
     <table class="table table-bordered">
@@ -31,7 +38,11 @@
             </tr>
             <tr>
                 <td><b>Sex</b></td>
-                <td><%= @staff.sex %></td>
+                <% if @staff.sex = 0 %>
+                    <td>Female</td>                  
+                <% else %>
+                    <td>Male</td>                  
+                <% end %>
             </tr>
             <tr>
                 <td><b>State</b></td>
@@ -71,7 +82,12 @@
             </tr>
             <tr>
                 <td><b>Status of application</b></td>
-                <td><%= @staff.status_of_app %></td>
+                <% if @staff.status_of_app = 0 %>
+                    <td>Female</td>                  
+                <% else %>
+                    <td>Male</td>                  
+                <% end %>
+            </tr>
             </tr>
             <tr>
                 <td><b>File number</b></td>
@@ -82,4 +98,7 @@
                 <td><%= @staff.remarks %></td>
             </tr>
     </table>
+    <div class="text-center">
+        <%= link_to "Back", :back, class: "btn btn-small btn-primary" %>
+    </div>
 </div>
