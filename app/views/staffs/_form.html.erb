@@ -2,112 +2,140 @@
     <%= render 'layouts/errors', form: form %>
 
     <div class="form-group">
-        <h6><%= form.label :title %></h6>
-        <%= form.text_field :title, autocomplete: 'off', class: "form-control" %>
+        <h5><%= form.label :title, "Title of staff" %></h5>
+        <%#= select_tag :title, options_for_select(Staff.titles.map { |k,v| [k.capitalize] }, selected: @staff.title, include_blank: true), class: "form-select" %>
+        <%= form.select :title, Staff.titles.keys.map{ |key| [key.humanize, key] }, prompt: "Select staff title", class: "form-select", selected: @staff.title %>
     </div>
-    
+
     <br>
-    
+
     <div class="form-group">
-        <h6><%= form.label :surname %></h6>
+        <h5><%= form.label :surname %></h5>
         <%= form.text_field :surname, autocomplete: 'off', class: "form-control" %>
     </div>
     
     <br>
 
     <div class="form-group">
-        <h6><%= form.label :other_names %></h6>
+        <h5><%= form.label :other_names %></h5>
         <%= form.text_field :other_names, autocomplete: 'off', class: "form-control" %>
     </div>
 
     <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :Gender %></h6>
-        <%= select_tag :sex, options_for_select(Staff.sexes.map { |k,v| k }, { required: true, include_blank: false}), class: "form-select" %>
-    </div>
 
-    <br>
-        
     <div class="form-group">
-        <h6><%= form.label :state %></h6>
-        <%= form.text_field :state, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :lga, "Local Government Area" %></h6>
-        <%= form.text_field :lga, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :designation %></h6>
-        <%= form.text_field :designation, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :qwd, "Qualifications with dates" %></h6>
-        <%= form.text_area :qwd, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :prof_qualifications, "Professional qualifications" %></h6>
-        <%= form.text_area :prof_qualifications, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :conpcass %></h6>
-        <%= form.number_field :conpcass, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :dob, "Date of birth" %></h6>
-        <%= form.date_field :dob, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :dofa, "Date of first appointment" %></h6>
-        <%= form.date_field :dofa, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :dopa, "Date of present appointment" %></h6>
-        <%= form.date_field :dopa, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :status_of_app, "Status of appointment" %></h6>
-        <%= select_tag :status_of_app, options_for_select(Staff.status_of_apps.map { |k,v| k }, { required: true, include_blank: false}), class: "form-select" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h6><%= form.label :file_no, "File number" %></h6>
+        <h5><%= form.label :file_no, "File number" %></h5>
         <%= form.text_field :file_no, autocomplete: 'off', class: "form-control" %>
     </div>
     
     <br>
     
     <div class="form-group">
-        <h6><%= form.label :remarks %></h6>
+        <h5><%= form.label :staff_status, "Status of staff" %></h5>
+        <%#= select_tag :staff_status, options_for_select(Staff.staff_statuses.map { |k,v| [k.humanize, k] }, { selected: @staff.staff_status, required: true, include_blank: false}), class: "form-select" %>
+        
+        <%= form.select :staff_status, Staff.staff_statuses.keys.map{ |key| [key.humanize.upcase, key] }, prompt: "Select staff status", class: "form-select", selected: @staff.staff_status %>
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :status_of_app, "Status of appointment" %></h5>
+        <%#= select_tag :status_of_app, options_for_select(Staff.status_of_apps.map { |k,v| [k.humanize, k] }, { selected: @staff.status_of_app, required: true, include_blank: false}), class: "form-select" %>
+
+        <%= form.select :status_of_app, Staff.status_of_apps.keys.map{ |key| [key.humanize, key] }, prompt: "Select status of staff's application", class: "form-select", selected: @staff.status_of_app %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group" data-controller="tom-select">
+        <h5><%= form.label :Qualifications %></h5>
+        <%= form.select :qualification_ids, 
+                        Qualification.all.pluck(:name, :id), 
+                        {}, 
+                        { multiple: true, 
+                        id: 'select-qualifications' } %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :Gender %></h5>
+        <%#= form.select :Sex, options_for_select(Staff.sexes.map { |k,v| k }), { include_blank: "Select gender"} , { class: "form-control" } %>
+
+        <%= form.select :sex, 
+                        Staff.sexes.keys.map{ |key| [key.humanize, key] }, 
+                        prompt: "Select staff's gender", class: "form-select", 
+                        selected: @staff.sex %>
+    </div>
+
+    <br>
+        
+    <div class="form-group">
+        <h5><%= form.label :state %></h5>
+        <%= form.text_field :state, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :lga, "Local Government Area" %></h5>
+        <%= form.text_field :lga, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :designation %></h5>
+        <%= form.text_field :designation, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :qwd, "Qualifications with dates" %></h5>
+        <%= form.text_area :qwd, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :prof_qualifications, "Professional qualifications" %></h5>
+        <%= form.text_area :prof_qualifications, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :conpcass %></h5>
+        <%= form.number_field :conpcass, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :dob, "Date of birth" %></h5>
+        <%= form.date_field :dob, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :dofa, "Date of first appointment" %></h5>
+        <%= form.date_field :dofa, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :dopa, "Date of present appointment" %></h5>
+        <%= form.date_field :dopa, autocomplete: 'off', class: "form-control" %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :remarks %></h5>
         <%= form.text_area :remarks, autocomplete: 'off', class: "form-control" %>
     </div>
 

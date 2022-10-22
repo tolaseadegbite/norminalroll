@@ -24,8 +24,17 @@
 #  updated_at          :datetime         not null
 #
 class Staff < ApplicationRecord
+  validates :title, :surname, :other_names, :sex, :state, :lga, :designation, :qwd, :prof_qualifications, :conpcass, :staff_status, :dob, :dofa, :dopa, :status_of_app, :file_no, :remarks, presence: true
   belongs_to :user
+  has_many :qualificationables, dependent: :destroy
+  has_many :qualifications, through: :qualificationables
 
-  enum sex: { Female: 0, Male: 1 }
-  enum status_of_app: { Pending: 0, Active: 1, Retired: 2 }
+
+  enum title: { doctor: "Doctor", mr: "Mr", mrs: "Mrs" }
+
+  enum staff_status: { "Chief lecturer with PhD": "Chief lecturer with PhD", "Chief lecturer with MSc": "Chief lecturer with MSc", "Senior lecturer with PhD": "Senior lecturer with PhD", "Senior lecturer with MSc": "Senior lecturer with MSc" }
+
+  enum status_of_app: { Pending: "Pending", Active: "Active", Retired: "Retired" }
+
+  enum sex: { male: "Male", female: "Female" }
 end

@@ -11,52 +11,53 @@
           <th scope="col">Title</th>
           <th scope="col">Surname</th>
           <th scope="col">Other names</th>
+          <th scope="col">File number</th>
+          <th scope="col">Status of Staff</th>
+          <th scope="col">Status of Appointment</th>
+          <th scope="col">Qualifications with dates</th>
           <th scope="col">Gender</th>
           <th scope="col">State</th>
           <th scope="col">Local Government Area (LGA)</th>
           <th scope="col">Designation</th>
-          <th scope="col">Qualifications with dates</th>
           <th scope="col">Professional qualifications</th>
           <th scope="col">Conpcass</th>
           <th scope="col">Date of birth</th>
           <th scope="col">Date of first appointment</th>
           <th scope="col">Date of present appointment</th>
-          <th scope="col">Status of Appointment</th>
-          <th scope="col">File number</th>
           <th scope="col">Remarks</th>
           <th scope="col">Action</th>
           <th scope="col">Action</th>
         </tr>
       </thead>
       <tbody>
-        <% @staff.each do |staff| %>
+        <% @staffs.each do |staff| %>
           <%= link_to staff_path(staff) do %>
             <tr>
               <td><%= staff.id %></td>
-              <td><%= staff.title %></td>
-              <td><%= staff.surname %></td>
-              <td><%= staff.other_names %></td>
+              <td><%= staff.title.capitalize %></td>
+              <td><%= staff.surname.capitalize %></td>
+              <td><%= staff.other_names.capitalize %></td>
+              <td><%= staff.file_no %></td>
+              <td><%= staff.staff_status %></td>
+              <td><%= staff.status_of_app %></td>
               <td>
-                <% if staff.sex = 0 %>
-                  Female                  
-                <% else %>
-                  Male                  
+                <% staff.qualifications.each do |q| %>
+                  <%= link_to q.name.upcase, "#", class: "btn btn-sm btn-secondary btn-q" %>
                 <% end %>
               </td>
+              <td><%= staff.sex.capitalize %></td>
               <td><%= staff.state %></td>
               <td><%= staff.lga %></td>
               <td><%= staff.designation %></td>
-              <td><%= simple_format(staff.qwd) %></td>
               <td><%= simple_format(staff.prof_qualifications) %></td>
               <td><%= staff.conpcass %></td>
               <td><%= staff.dob %></td>
               <td><%= staff.dofa %></td>
               <td><%= staff.dopa %></td>
-              <td><%= staff.status_of_app %></td>
-              <td><%= staff.file_no %></td>
               <td><%= staff.remarks %></td>
-              <td><%= link_to "View", staff, class: "btn btn-sm btn-primary mb-1" %> <%= link_to "Edit", edit_staff_path(staff), class: "btn btn-sm btn-primary" %></td>
-              <td><%= button_to 'Delete', staff_path(staff), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-sm btn-danger' %></td>
+              <td><%= link_to "View", staff %> 
+              <%= link_to "Edit", edit_staff_path(staff) %></td>
+              <td><%= link_to 'Delete', staff_path(staff), method: :delete, data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
             </tr>
           <% end %>
         <% end %>

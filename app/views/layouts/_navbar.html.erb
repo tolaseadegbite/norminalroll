@@ -10,7 +10,58 @@
           <%= link_to "Home", root_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <%= link_to "Staff records", staffs_path, class: "nav-link" %>
+          <%= link_to "All records", staffs_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown has-megamenu">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> Filter records  </a>
+          <div class="dropdown-menu megamenu" role="menu">
+            <div class="row g-3">
+              <div class="col-lg-3 col-6">
+                <div class="col-megamenu">
+                  <h5 class="title">Title</h5>
+                  <hr>
+                  <ul class="list-unstyled">
+                    <li><%= link_to "Doctor", doctor_path %></li>
+                    <li><%= link_to "Mr", mr_path %></li>
+                    <li><%= link_to "Mrs", mrs_path %></li>
+                  </ul>
+                </div>  <!-- col-megamenu.// -->
+              </div><!-- end col-3 -->
+              <div class="col-lg-3 col-6">
+                <div class="col-megamenu">
+                  <h5 class="title">Staff status</h5>
+                  <hr>
+                  <ul class="list-unstyled">
+                    <li><%= link_to "Chief lecturer with PHD", chief_lecturer_with_phd_path %></li>
+                    <li><%= link_to "Chief lecturer with MSC", chief_lecturer_with_msc_path %></li>
+                    <li><%= link_to "Senior lecturer with PHD", senior_lecturer_with_phd_path %></li>
+                    <li><%= link_to "Senior lecturer with MSC", senior_lecturer_with_msc_path %></li>
+                  </ul>
+                </div>  <!-- col-megamenu.// -->
+              </div><!-- end col-3 -->
+              <div class="col-lg-3 col-6">
+                <div class="col-megamenu">
+                  <h5 class="title">Status of staff application</h5>
+                  <hr>
+                  <ul class="list-unstyled">
+                    <li><%= link_to "Pending", pending_staffs_path %></li>
+                    <li><%= link_to "Active", active_staffs_path %></li>
+                    <li><%= link_to "Retired", retired_staffs_path %></li>
+                  </ul>
+                </div>  <!-- col-megamenu.// -->
+              </div>    
+              <div class="col-lg-3 col-6">
+                <div class="col-megamenu">
+                  <h5 class="title">Gender</h5>
+                  <hr>
+                  <ul class="list-unstyled">
+                    <li><%= link_to "Male Staffs", male_staffs_path %></li>
+                    <li><%= link_to "Female Staffs", female_staffs_path %></li>
+                  </ul>
+                </div>  <!-- col-megamenu.// -->
+              </div><!-- end col-3 -->
+            </div><!-- end row --> 
+          </div> <!-- dropdown-mega-menu.// -->
         </li>
         <li class="nav-item">
           <%#= link_to "New record", new_staff_path, class: "nav-link" %>
@@ -33,10 +84,18 @@
         </li>
         <% end %>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
     </div>
   </div>
 </nav>
+
+<script type="text/javascript">
+	document.addEventListener("DOMContentLoaded", function(){
+        /////// Prevent closing from click inside dropdown
+        document.querySelectorAll('.dropdown-menu').forEach(function(element){
+        	element.addEventListener('click', function (e) {
+        		e.stopPropagation();
+        	});
+        })
+    }); 
+	// DOMContentLoaded  end
+</script>

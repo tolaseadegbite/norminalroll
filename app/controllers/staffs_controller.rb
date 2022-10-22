@@ -3,7 +3,8 @@ class StaffsController < ApplicationController
     before_action :find_staff, only: %i[show edit update destroy]
 
     def index
-        @staff = Staff.all.order(created_at: :asc)
+        @staffs = Staff.all.order(created_at: :asc)
+        # @staffs = Staff.where(title: Staff.titles[params[:title].to_sym]).order("created_at DESC") if params[:title].present?
     end
 
     def new
@@ -46,6 +47,58 @@ class StaffsController < ApplicationController
         end
     end
 
+    def doctor
+        @staffs = Staff.doctor
+        render :index
+    end
+    def mr
+        @staffs = Staff.mr
+        render :index
+    end
+    def mrs
+        @staffs = Staff.mrs
+        render :index
+    end
+
+    def clwphd
+        @staffs = Staff.Chief_lecturer_with_PhD
+        render :index
+    end
+    def clwmsc
+        @staffs = Staff.Chief_lecturer_with_MSc
+        render :index
+    end
+    def slwphd
+        @staffs = Staff.Senior_lecturer_with_PhD
+        render :index
+    end
+    def slwmsc
+        @staffs = Staff.Senior_lecturer_with_MSc
+        render :index
+    end
+
+    def pending
+        @staffs = Staff.pending
+        render :index
+    end
+    def retired
+        @staffs = Staff.retired
+        render :index
+    end
+    def active
+        @staffs = Staff.active
+        render :index
+    end
+
+    def male
+        @staffs = Staff.male
+        render :index
+    end
+    def female
+        @staffs = Staff.female
+        render :index
+    end
+
     private
 
         def find_staff
@@ -53,6 +106,6 @@ class StaffsController < ApplicationController
         end
 
         def staff_params
-            params.require(:staff).permit(:title, :surname, :other_names, :sex, :state, :lga, :designation, :qwd, :prof_qualifications, :conpcass, :dob, :dofa, :dopa, :status_of_app, :file_no, :remarks)
+            params.require(:staff).permit(:title, :surname, :other_names, :sex, :state, :lga, :designation, :qwd, :prof_qualifications, :conpcass, :staff_status, :dob, :dofa, :dopa, :status_of_app, :file_no, :remarks, qualification_ids: [])
         end
 end

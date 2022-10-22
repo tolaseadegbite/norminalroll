@@ -10,8 +10,8 @@
 
     <p>
         <%= link_to "Edit", edit_staff_path(@staff) %> |
-        <%= link_to "Delete", staff_path(@staff), class: "text-danger" %>
-        <h1 class="text-center"><%= @staff.title %> <%= @staff.surname %>'s record</h1>
+        <%= button_to "Delete", staff_path(@staff), method: :delete, class: "text-danger" %>
+        <h1 class="text-center"><%= @staff.title.capitalize %> <%= @staff.surname %>'s record</h1>
     </p>
     <br>
     
@@ -26,23 +26,39 @@
         </tbody>
             <tr>
                 <td><b>Title</b></td>
-                <td><%= @staff.title %></td>
+                <td><%= @staff.title.capitalize %></td>
             </tr>
             <tr>
                 <td><b>Surname</b></td>
-                <td><%= @staff.surname %></td>
+                <td><%= @staff.surname.capitalize %></td>
             </tr>
             <tr>
                 <td><b>Other names</b></td>
-                <td><%= @staff.other_names %></td>
+                <td><%= @staff.other_names.capitalize %></td>
             </tr>
             <tr>
-                <td><b>Sex</b></td>
-                <% if @staff.sex = 0 %>
-                    <td>Female</td>                  
-                <% else %>
-                    <td>Male</td>                  
-                <% end %>
+                <td><b>File number</b></td>
+                <td><%= @staff.file_no %></td>
+            </tr>
+            <tr>
+                <td><b>Status of staff</b></td>
+                <td><%= @staff.staff_status.capitalize %></td>
+            </tr>
+            <tr>
+                <td><b>Status of appointment</b></td>
+                <td><%= @staff.status_of_app.capitalize %></td>
+            </tr>
+            <tr>
+                <td><b>Qualifications with dates</b></td>
+                <td>
+                    <% @staff.qualifications.pluck(:name).each do |q| %>
+                        <%= link_to q.upcase, "#", class: "btn btn-sm btn-secondary btn-q-s" %>
+                    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Gender</b></td>
+                <td><%= @staff.sex.capitalize %></td>
             </tr>
             <tr>
                 <td><b>State</b></td>
@@ -55,10 +71,6 @@
             <tr>
                 <td><b>Designation</b></td>
                 <td><%= @staff.designation %></td>
-            </tr>
-            <tr>
-                <td><b>Qualifications with dates</b></td>
-                <td><%= simple_format(@staff.qwd) %></td>
             </tr>
             <tr>
                 <td><b>Professional Qualifications</b></td>
@@ -79,19 +91,7 @@
             <tr>
                 <td><b>Date of present appointment</b></td>
                 <td><%= @staff.dopa %></td>
-            </tr>
-            <tr>
-                <td><b>Status of application</b></td>
-                <% if @staff.status_of_app = 0 %>
-                    <td>Female</td>                  
-                <% else %>
-                    <td>Male</td>                  
-                <% end %>
-            </tr>
-            </tr>
-            <tr>
-                <td><b>File number</b></td>
-                <td><%= @staff.file_no %></td>
+            </tr> 
             </tr>
             <tr>
                 <td><b>Remarks</b></td>

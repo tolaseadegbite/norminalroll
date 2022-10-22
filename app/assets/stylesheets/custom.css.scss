@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto&display=swap');
+// @import 'tom-select/dist/css/tom-select.css';
+
+ h1,h2,h3,h4,h5,h6 {
+    font-family: 'Roboto', sans-serif;
+    /* font-weight: bold; */
+ }
+ p,td {
+    font-family: 'Open Sans', sans-serif;
+ }
+
+ th {
+    font-family: 'Roboto', sans-serif;
+ }
+
+ section {
+    font-size: 12px;
+    padding: 5vh 0;
+ }
+
+ textarea.form-control {
+    min-height: 15vw;
+}
+
+.btn-q {
+   border-radius: none;
+   margin: 1px;
+   padding: 0;
+   font-size: .6rem;
+}
+
+.btn-q-s {
+   margin: 1px;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.3rem 0.3rem;
+}
+
+select {
+   color: white;
+   width: 100%;
+//    background-color: #f00;
+   padding: 5px;
+   border-radius: 5px;
+   color: #000;
+}
+
+select::part(listbox) {
+   padding: 10px;
+   margin-top: 5px;
+//    border: 1px solid red;
+   border-radius: 5px;
+   color: #000;
+}
+
+hr {
+   margin: .8rem 0;
+}
+
+.navbar .megamenu{
+   padding: 1rem; 
+   li {
+      font-size: 1rem;
+      a {
+         color: #212529;
+         text-decoration: none;
+         display: block;
+         &:hover,&:focus {
+            background-color: rgba(33, 37, 41, 0.1);
+            color: #212529;
+         }
+      }
+   }
+}
+
+/* ============ desktop view ============ */
+@media all and (min-width: 992px) {
+
+  .navbar .has-megamenu{position:static!important;}
+  .navbar .megamenu{left:0; right:0; width:100%; margin-top:0;  }
+
+}	
+/* ============ desktop view .end// ============ */
+
+/* ============ mobile view ============ */
+@media(max-width: 991px){
+  .navbar.fixed-top .navbar-collapse, .navbar.sticky-top .navbar-collapse{
+    overflow-y: auto;
+      max-height: 90vh;
+      margin-top:10px;
+  }
+}
