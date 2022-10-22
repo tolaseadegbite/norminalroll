@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  draw :madmin
   devise_for :users
   root "staffs#index"
   devise_scope :user do

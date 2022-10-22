@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_22_000040) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_22_191135) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -50,6 +50,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_22_000040) do
     t.date "dob"
     t.date "dofa"
     t.date "dopa"
+    t.string "permanent_address"
+    t.string "department"
+    t.integer "phone_number"
+    t.string "email"
+    t.date "date_of_confirmation"
     t.index ["user_id"], name: "index_staffs_on_user_id"
   end
 
