@@ -22,12 +22,40 @@
     </div>
 
     <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :email %></h5>
+        <%= form.email_field :email, autocomplete: 'off', class: "form-control" %>
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :Phone_number %></h5>
+        <%= form.text_field :phone_number, autocomplete: 'off', class: "form-control" %>
+    </div>
+
+    <br>
 
     <div class="form-group">
-        <h5><%= form.label :file_no, "File number" %></h5>
-        <%= form.text_field :file_no, autocomplete: 'off', class: "form-control" %>
+        <h5><%= form.label :Permanent_address %></h5>
+        <%= form.text_field :permanent_address, autocomplete: 'off', class: "form-control" %>
     </div>
     
+    <br>
+
+    <div class="form-group">
+        <h5><%= form.label :File_no %></h5>
+        <%= form.text_field :file_no, autocomplete: 'off', class: "form-control" %>
+    </div>
+
+    <br>
+
+    <div class="form-group">
+        <h5><%= form.label :Department %></h5>
+        <%= form.text_field :department, autocomplete: 'off', class: "form-control" %>
+    </div>
+
     <br>
     
     <div class="form-group">
@@ -55,6 +83,13 @@
                         {}, 
                         { multiple: true, 
                         id: 'select-qualifications' } %>
+    </div>
+    
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :prof_qualifications, "Professional qualifications" %></h5>
+        <%= form.text_area :prof_qualifications, autocomplete: 'off', class: "form-control" %>
     </div>
     
     <br>
@@ -93,20 +128,6 @@
     <br>
     
     <div class="form-group">
-        <h5><%= form.label :qwd, "Qualifications with dates" %></h5>
-        <%= form.text_area :qwd, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
-        <h5><%= form.label :prof_qualifications, "Professional qualifications" %></h5>
-        <%= form.text_area :prof_qualifications, autocomplete: 'off', class: "form-control" %>
-    </div>
-    
-    <br>
-    
-    <div class="form-group">
         <h5><%= form.label :conpcass %></h5>
         <%= form.number_field :conpcass, autocomplete: 'off', class: "form-control" %>
     </div>
@@ -130,6 +151,13 @@
     <div class="form-group">
         <h5><%= form.label :dopa, "Date of present appointment" %></h5>
         <%= form.date_field :dopa, autocomplete: 'off', class: "form-control" %>
+    </div>
+
+    <br>
+    
+    <div class="form-group">
+        <h5><%= form.label :date_of_confirmation, "Date of Confirmation" %></h5>
+        <%= form.date_field :date_of_confirmation, autocomplete: 'off', class: "form-control" %>
     </div>
     
     <br>

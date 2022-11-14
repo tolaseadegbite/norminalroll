@@ -24,7 +24,11 @@
 #  updated_at          :datetime         not null
 #
 class Staff < ApplicationRecord
-  validates :title, :surname, :other_names, :sex, :state, :lga, :designation, :qwd, :prof_qualifications, :conpcass, :staff_status, :dob, :dofa, :dopa, :status_of_app, :file_no, :remarks, presence: true
+  validates :title, :surname, :other_names, :sex, :state, :lga, :designation, :qwd, :prof_qualifications, :conpcass, :staff_status, :dob, :dofa, :dopa, :status_of_app, :file_no, :remarks, :permanent_address, :department, :phone_number, :email, :date_of_confirmation, presence: true
+
+  validates_uniqueness_of :phone_number
+  validates_uniqueness_of :email
+
   belongs_to :user
   has_many :qualificationables, dependent: :destroy
   has_many :qualifications, through: :qualificationables

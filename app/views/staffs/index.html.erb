@@ -11,7 +11,11 @@
           <th scope="col">Title</th>
           <th scope="col">Surname</th>
           <th scope="col">Other names</th>
+          <th scope="col">Email</th>
+          <th scope="col">Phone no</th>
+          <th scope="col">Address</th>
           <th scope="col">File number</th>
+          <th scope="col">Department</th>
           <th scope="col">Status of Staff</th>
           <th scope="col">Status of Appointment</th>
           <th scope="col">Qualifications with dates</th>
@@ -24,6 +28,7 @@
           <th scope="col">Date of birth</th>
           <th scope="col">Date of first appointment</th>
           <th scope="col">Date of present appointment</th>
+          <th scope="col">Date of Confirmation</th>
           <th scope="col">Remarks</th>
           <th scope="col">Action</th>
           <th scope="col">Action</th>
@@ -37,12 +42,16 @@
               <td><%= staff.title.capitalize %></td>
               <td><%= staff.surname.capitalize %></td>
               <td><%= staff.other_names.capitalize %></td>
+              <td><%= staff.email %></td>
+              <td><%= staff.phone_number %></td>
+              <td><%= staff.permanent_address %></td>
               <td><%= staff.file_no %></td>
+              <td><%= staff.department %></td>
               <td><%= staff.staff_status %></td>
               <td><%= staff.status_of_app %></td>
               <td>
                 <% staff.qualifications.each do |q| %>
-                  <%= link_to q.name.upcase, "#", class: "btn btn-sm btn-secondary btn-q" %>
+                  <%= link_to q.name.upcase, "#", class: "badge", style: "color: #212529; font-weight:normal; text-decoration:none" %>
                 <% end %>
               </td>
               <td><%= staff.sex.capitalize %></td>
@@ -54,6 +63,7 @@
               <td><%= staff.dob %></td>
               <td><%= staff.dofa %></td>
               <td><%= staff.dopa %></td>
+              <td><%= staff.date_of_confirmation %></td>
               <td><%= staff.remarks %></td>
               <td><%= link_to "View", staff %> 
               <%= link_to "Edit", edit_staff_path(staff) %></td>

@@ -37,8 +37,24 @@
                 <td><%= @staff.other_names.capitalize %></td>
             </tr>
             <tr>
+                <td><b>Email Address</b></td>
+                <td><%= @staff.email %></td>
+            </tr>
+            <tr>
+                <td><b>Phone number</b></td>
+                <td><%= @staff.phone_number %></td>
+            </tr>
+            <tr>
+                <td><b>Permanent Address</b></td>
+                <td><%= @staff.permanent_address %></td>
+            </tr>
+            <tr>
                 <td><b>File number</b></td>
                 <td><%= @staff.file_no %></td>
+            </tr>
+            <tr>
+                <td><b>Department</b></td>
+                <td><%= @staff.department %></td>
             </tr>
             <tr>
                 <td><b>Status of staff</b></td>
@@ -91,6 +107,10 @@
             <tr>
                 <td><b>Date of present appointment</b></td>
                 <td><%= @staff.dopa %></td>
+            </tr> 
+            <tr>
+                <td><b>Date of confirmation</b></td>
+                <td><%= @staff.date_of_confirmation %></td>
             </tr> 
             </tr>
             <tr>

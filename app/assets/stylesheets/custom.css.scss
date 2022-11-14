@@ -14,8 +14,8 @@
  }
 
  section {
-    font-size: 12px;
-    padding: 5vh 0;
+   font-size: 12px;
+   padding: 5vh 0;
  }
 
  textarea.form-control {
@@ -31,6 +31,10 @@
 
 .btn-q-s {
    margin: 1px;
+}
+
+.table {
+   font-size: 1.1em;
 }
 
 .table>:not(caption)>*>* {

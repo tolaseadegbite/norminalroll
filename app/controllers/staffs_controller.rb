@@ -106,6 +106,6 @@ class StaffsController < ApplicationController
         end
 
         def staff_params
-            params.require(:staff).permit(:title, :surname, :other_names, :sex, :state, :lga, :designation, :qwd, :prof_qualifications, :conpcass, :staff_status, :dob, :dofa, :dopa, :status_of_app, :file_no, :remarks, qualification_ids: [])
+            params.require(:staff).permit(:title, :surname, :other_names, :sex, :state, :lga, :designation, :qwd, :prof_qualifications, :conpcass, :staff_status, :dob, :dofa, :dopa, :status_of_app, :file_no, :remarks, :permanent_address, :department, :phone_number, :email, :date_of_confirmation, qualification_ids: [])
         end
 end
