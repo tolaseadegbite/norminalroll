@@ -38,7 +38,7 @@ class Staff < ApplicationRecord
 
   enum staff_status: { "Chief lecturer with PhD": "Chief lecturer with PhD", "Chief lecturer with MSc": "Chief lecturer with MSc", "Senior lecturer with PhD": "Senior lecturer with PhD", "Senior lecturer with MSc": "Senior lecturer with MSc" }
 
-  enum status_of_app: { Pending: "Pending", Active: "Active", Retired: "Retired" }
+  enum status_of_app: { pending: "Pending", active: "Active", retired: "Retired" }
 
   enum sex: { male: "Male", female: "Female" }
 end
